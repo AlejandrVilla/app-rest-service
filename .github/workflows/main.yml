@@ -1,0 +1,29 @@
+name: Ejecutar Script de Shell
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-app:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout of source code
+      uses: actions/checkout@v2
+    
+    - name: Check versions
+      run: pre-init.sh
+
+    - name: config
+      run: config.sh
+
+    - name: Clean
+      run: pre-build.sh
+
+    - name: Build and push
+      run: docker-build-push.sh
+
+    #- name: destroy
+    # run: destroy.sh
