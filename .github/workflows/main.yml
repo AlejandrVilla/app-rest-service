@@ -27,6 +27,7 @@ jobs:
 
     - name: Listar Recursos de Azure
       run: az group list --allow-no-subscriptions
+      
 
     - name: config
       run: bash config.sh
