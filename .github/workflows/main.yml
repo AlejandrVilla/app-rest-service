@@ -13,6 +13,9 @@ jobs:
     steps:
     - name: Checkout of source code
       uses: actions/checkout@v2
+      
+    - name: Check versions
+      run: bash pre-init.sh
     
     - name: Azure login
       uses: azure/login@v1
@@ -25,8 +28,6 @@ jobs:
     - name: Listar Recursos de Azure
       run: az group list
 
-    - name: Check versions
-      run: bash pre-init.sh
 
     - name: config
       run: bash config.sh
