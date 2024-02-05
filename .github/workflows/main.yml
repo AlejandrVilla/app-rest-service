@@ -14,16 +14,16 @@ jobs:
       uses: actions/checkout@v2
     
     - name: Check versions
-      run: pre-init.sh
+      run: bash pre-init.sh
 
     - name: config
-      run: config.sh
+      run: bash config.sh
 
     - name: Clean
-      run: pre-build.sh
+      run: bash pre-build.sh
 
     - name: Build and push
-      run: docker-build-push.sh
+      run: bash docker-build-push.sh
 
     #- name: destroy
     # run: destroy.sh
