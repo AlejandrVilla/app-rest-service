@@ -30,7 +30,7 @@ jobs:
 
     - name: Access Azure Key Vault
       run: |
-        keyvault_url=${{ secrets.AZURE_KEYVAULT_URL }}
+        azure_keyvault_url=${{ secrets.AZURE_KEYVAULT_URL }}
         client_id=${{ secrets.AZURE_CLIENT_ID }}
         client_secret=${{ secrets.AZURE_CLIENT_SECRET }}
         tenant_id=${{ secrets.AZURE_TENANT_ID }}
