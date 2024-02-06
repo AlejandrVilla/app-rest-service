@@ -9,6 +9,12 @@ jobs:
   build-app:
     runs-on: self-hosted
     
+    env:
+      AZURE_KEYVAULT_URL: ${{ secrets.AZURE_KEYVAULT_URL }}
+      CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+
     steps:
     - name: Checkout of source code
       uses: actions/checkout@v2
@@ -34,13 +40,6 @@ jobs:
         client_id=${{ secrets.AZURE_CLIENT_ID }}
         client_secret=${{ secrets.AZURE_CLIENT_SECRET }}
         tenant_id=${{ secrets.AZURE_TENANT_ID }}
-
-        # Your commands to interact with Azure Key Vault using Azure CLI or other tools.
-      env:
-        AZURE_KEYVAULT_URL: ${{ secrets.AZURE_KEYVAULT_URL }}
-        CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-        CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-        TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
     - name: Fetch Secrets from Azure Key Vault
       run: |
