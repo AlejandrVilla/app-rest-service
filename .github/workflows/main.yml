@@ -36,7 +36,7 @@ jobs:
 
     - name: Access Azure Key Vault
       run: |
-        azure_keyvault_url=${{ secrets.AZURE_KEYVAULT_URL }}
+        keyvault_url=${{ secrets.AZURE_KEYVAULT_URL }}
         client_id=${{ secrets.AZURE_CLIENT_ID }}
         client_secret=${{ secrets.AZURE_CLIENT_SECRET }}
         tenant_id=${{ secrets.AZURE_TENANT_ID }}
@@ -44,7 +44,7 @@ jobs:
     - name: Fetch Secrets from Azure Key Vault
       run: |
         # Authenticate to Azure Key Vault
-        az keyvault secret show --vault-name $AZURE_KEYVAULT_URL --name "avh-app-client-secret" --query "value" --output tsv
+        az keyvault secret show --vault-name $AZURE_KEYVAULT_URL --name "avhkv" --query "value" --output tsv
       id: fetch_secret
 
     - name: Set Secrets as Environment Variables
