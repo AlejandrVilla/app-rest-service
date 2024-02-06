@@ -27,7 +27,7 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az account show
-          
+
     - name: Access Azure Key Vault
       run: |
         keyvault_url=${{ secrets.AZURE_KEYVAULT_URL }}
@@ -41,14 +41,6 @@ jobs:
         CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
         TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-
-        # auth-type: IDENTITY          
-    #     tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-    #     subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    #     enable-AzPSSession: "true"
-
-    # - name: Listar Recursos de Azure
-    #   run: az group list --allow-no-subscriptions
       
     - name: config
       run: bash config.sh
