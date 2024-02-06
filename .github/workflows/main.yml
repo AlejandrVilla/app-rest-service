@@ -21,19 +21,19 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
       
-     - name: Access Azure Key Vault
-        run: |
-          keyvault_url=${{ secrets.AZURE_KEYVAULT_URL }}
-          client_id=${{ secrets.AZURE_CLIENT_ID }}
-          client_secret=${{ secrets.AZURE_CLIENT_SECRET }}
-          tenant_id=${{ secrets.AZURE_TENANT_ID }}
+    - name: Access Azure Key Vault
+      run: |
+        keyvault_url=${{ secrets.AZURE_KEYVAULT_URL }}
+        client_id=${{ secrets.AZURE_CLIENT_ID }}
+        client_secret=${{ secrets.AZURE_CLIENT_SECRET }}
+        tenant_id=${{ secrets.AZURE_TENANT_ID }}
 
-          # Your commands to interact with Azure Key Vault using Azure CLI or other tools.
-        env:
-          KEYVAULT_URL: ${{ secrets.AZURE_KEYVAULT_URL }}
-          CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-          TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        # Your commands to interact with Azure Key Vault using Azure CLI or other tools.
+      env:
+        KEYVAULT_URL: ${{ secrets.AZURE_KEYVAULT_URL }}
+        CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
         # auth-type: IDENTITY          
     #     tenant-id: ${{ secrets.AZURE_TENANT_ID }}
