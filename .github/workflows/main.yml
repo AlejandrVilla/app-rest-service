@@ -44,7 +44,7 @@ jobs:
     - name: Fetch Secrets from Azure Key Vault
       run: |
         # Authenticate to Azure Key Vault
-        az keyvault secret show --vault-name $AZURE_KEYVAULT_URL --name avh-github-action --query value --output tsv
+        az keyvault secret show --vault-name $AZURE_KEYVAULT_URL --name $keyvault_url --query value --output tsv
       id: fetch_secret
 
     - name: Set Secrets as Environment Variables
