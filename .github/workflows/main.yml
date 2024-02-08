@@ -1,20 +1,25 @@
 name: Ejecutar Script de Shell
 
+# eventos
 on:
   push:
     branches:
       - main
 
+# jobs en el flujo de trabajo
 jobs:
   build-app:
+    # entorno
     runs-on: self-hosted
     
-    env:
-      AZURE_KEYVAULT_URL: ${{ secrets.AZURE_KEYVAULT_URL }}
-      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-      AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+    # variables de entorno
+    # env:
+    #   AZURE_KEYVAULT_URL: ${{ secrets.AZURE_KEYVAULT_URL }}
+    #   AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+    #   AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+    #   AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
+    # pasos
     steps:
     - name: Checkout of source code
       uses: actions/checkout@v2
@@ -34,12 +39,12 @@ jobs:
         inlineScript: |
           az account show
 
-    - name: Access Azure Key Vault
-      run: |
-        keyvault_url=${{ secrets.AZURE_KEYVAULT_URL }}
-        client_id=${{ secrets.AZURE_CLIENT_ID }}
-        client_secret=${{ secrets.AZURE_CLIENT_SECRET }}
-        tenant_id=${{ secrets.AZURE_TENANT_ID }}
+    # - name: Access Azure Key Vault
+    #   run: |
+    #     keyvault_url=${{ secrets.AZURE_KEYVAULT_URL }}
+    #     client_id=${{ secrets.AZURE_CLIENT_ID }}
+    #     client_secret=${{ secrets.AZURE_CLIENT_SECRET }}
+    #     tenant_id=${{ secrets.AZURE_TENANT_ID }}
 
     # - name: Fetch Secrets from Azure Key Vault
     #   run: |
@@ -57,14 +62,14 @@ jobs:
     #     # For example
     #     echo $SECRET_VALUE
       
-    - name: config
-      run: bash config.sh
+    # - name: config
+    #   run: bash config.sh
 
-    - name: Clean
-      run: bash pre-build.sh
+    # - name: Clean
+    #   run: bash pre-build.sh
 
-    - name: Build and push
-      run: bash docker-build-push.sh
+    # - name: Build and push
+    #   run: bash docker-build-push.sh
 
     #- name: destroy
     # run: destroy.sh
