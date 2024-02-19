@@ -3,6 +3,8 @@
 gradle -v
 if [ $? != 0 ]; then
     echo "gradle no instalado, instalando...";
+    sudo apt install zip
+    sudo apt install unzip
     curl -s "https://get.sdkman.io" | bash
     sdk install gradle
 fi
@@ -26,12 +28,11 @@ if [ $? != 0 ]; then
 
     # Add the repository to Apt sources:
     echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update
 
     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    sudo usermod -aG docker $USER
 fi
 
 az -v
