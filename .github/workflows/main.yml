@@ -1,25 +1,19 @@
 name: Ejecutar Script de Shell
 
-# eventos
+# events
 on:
   push:
     branches:
       - main
 
-# jobs en el flujo de trabajo
+# jobs in the workflow
 jobs:
   build-app:
-    # entorno
-    runs-on: self-hosted
-    
-    # variables de entorno
-    # env:
-    #   AZURE_KEYVAULT_URL: ${{ secrets.AZURE_KEYVAULT_URL }}
-    #   AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-    #   AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-    #   AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+    # environment
+    # runs-on: self-hosted
+    runs-on: ubuntu-latest
 
-    # pasos
+    # steps
     steps:
     - name: Checkout of source code
       uses: actions/checkout@v2
@@ -62,14 +56,15 @@ jobs:
     #     # For example
     #     echo $SECRET_VALUE
       
-    # - name: config
-    #   run: bash config.sh
+    - name: config
+      run: bash config.sh
 
-    # - name: Clean
-    #   run: bash pre-build.sh
+    - name: Clean
+      run: bash pre-build.sh
 
-    # - name: Build and push
-    #   run: bash docker-build-push.sh
+    - name: Build and push
+      run: bash docker-build-push.sh
 
+    # uncomment this to destroy automatically
     #- name: destroy
     # run: destroy.sh
