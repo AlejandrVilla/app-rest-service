@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Variables
-ACR_NAME="avhacr"
+ACR_NAME="avhacrm"
 IMAGE_NAME="openjdk17"
 TAG="1.0"
 
