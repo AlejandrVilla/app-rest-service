@@ -4,7 +4,7 @@
 # Use the rules for create rg and acr names
 RESOURSE_GROUP_NAME="v-rg"
 # Check if the name is available
-ACR_NAME="avhacr"
+ACR_NAME="avhacrm"
 LOCATION="eastus"
 
 echo "Creating Resource Group $RESOURCE_GROUP_NAME"
