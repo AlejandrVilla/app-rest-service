@@ -1,4 +1,4 @@
-name: Ejecutar Script de Shell
+name: Deploy to ACR
 
 # events
 on:
@@ -8,7 +8,7 @@ on:
 
 # jobs in the workflow
 jobs:
-  build-app:
+  push-image:
     # environment
     # runs-on: self-hosted
     runs-on: ubuntu-latest

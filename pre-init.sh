@@ -8,11 +8,11 @@ if [ $? != 0 ]; then
 fi
 
 java --version
-if [ $? != 0 ]; then
-    echo "actualizando openjdk"
-    sudo apt-cache search openjdk
-    sudo apt install openjdk-17-jdk -y
-fi
+# if [ $? != 0 ]; then
+echo "actualizando openjdk"
+sudo apt-cache search openjdk
+sudo apt install openjdk-17-jdk -y
+# fi
 
 docker -v
 if [ $? != 0 ]; then
